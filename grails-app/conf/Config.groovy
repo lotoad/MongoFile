@@ -1,18 +1,18 @@
 // configuration for plugin testing - will not be included in the plugin zip
 
+mongodb {
+    host="localhost"
+    port=27017
+    dbName = "whatever"
+}
+
 log4j = {
     // Example of changing the log pattern for the default console
     // appender:
     //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
-
-       mongodb {
-              host="localhost"
-              port=27017
-              dbName = "whatever"
-       }
+    appenders {
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+    }
 
        error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
            'org.codehaus.groovy.grails.web.pages', //  GSP

@@ -8,12 +8,11 @@ class MongoFileGrailsPlugin {
             "grails-app/views/error.gsp"
     ]
 
-    // TODO Fill in these fields
     def title = "Mongo File Plugin" // Headline display name of the plugin
-    def author = "Your name"
-    def authorEmail = ""
+    def author = "James Toddington"
+    def authorEmail = "jtoddington@gmailcom"
     def description = '''\
-Brief summary/description of the plugin.
+Plugin to persist and retrieve files in GridFS Mong instance.
 '''
 
     // URL to the plugin's documentation

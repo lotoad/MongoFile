@@ -1,16 +1,19 @@
 package com.pod.mongofile
 
+import com.mongodb.DBObject
 import com.mongodb.Mongo
 import com.mongodb.gridfs.GridFS
 import grails.transaction.Transactional
+import org.bson.BSONObject
 import org.springframework.beans.factory.InitializingBean
 
 @Transactional
 class GridFsService implements InitializingBean{
 
-    ConfigSlurper mongoSettings
+    ConfigObject mongoSettings
     Mongo mongo
-    GridFS gridFS
+    GridFS gridfs
+    def grailsApplication
 
     //From InitializingBean
     void afterPropertiesSet(){
@@ -32,9 +35,11 @@ class GridFsService implements InitializingBean{
      */
     def saveFile(inputStream, contentType, filename) {
         def inputFile = gridfs.createFile(inputStream)
+        log.info(inputFile)
         inputFile.setContentType(contentType)
         inputFile.setFilename(filename)
         inputFile.save()
+        return inputFile.getId()
     }
 
     /**
@@ -52,7 +57,7 @@ class GridFsService implements InitializingBean{
      * @return
      */
     def deleteFile(String filename) {
-        gridfs.remove(filename)
+        return gridfs.remove(filename)
     }
 
     /**
@@ -61,7 +66,11 @@ class GridFsService implements InitializingBean{
      */
     def getFilesList() {
         def cursor = gridfs.getFileList()
-        cursor.toArray()
+        def t = cursor.toArray()
+        t.each {
+            println it
+        }
+        return cursor.toArray()
     }
 
 }
