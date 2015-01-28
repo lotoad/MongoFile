@@ -82,7 +82,7 @@ class GridFsService implements InitializingBean{
     }
 
     /**
-     *
+     * Get a file by ObjectId
      * @param gridFsId
      * @return
      */
@@ -91,7 +91,7 @@ class GridFsService implements InitializingBean{
     }
 
     /**
-     *
+     * Delete a file by name.
      * @param filename
      * @return
      */
@@ -100,7 +100,7 @@ class GridFsService implements InitializingBean{
     }
 
     /**
-     *
+     * Delete a file by ObjectId
      * @param gridFsId
      * @return
      */
@@ -109,7 +109,7 @@ class GridFsService implements InitializingBean{
     }
 
     /**
-     * GEt a list of files sorted by most oldest first.
+     * Get a list of files sorted by most oldest first.
      * @return ArrayList of type File
      */
     def retrieveFileList() {
